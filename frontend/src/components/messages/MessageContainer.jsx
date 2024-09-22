@@ -3,11 +3,16 @@ import useConversation from "../../store/useConversations.js";
 import MessageInput from "./MessageInput"
 import Messages from "./Messages"
 import {TiMessages} from 'react-icons/ti'
+import { Landing } from "../callMenu/Landing.jsx";
 const MessageContainer = () => {
     const {selectedConversation, setSelectedConversation} = useConversation()
+    const [call,setCall] = useState(false)
     useEffect(() =>{
         return setSelectedConversation(null);
     },[])
+    const handleCall = ()=>{
+        setCall(True)
+    }
 
   return (
     <div className='md:min-w-[450px] flex flex-col'>
@@ -24,10 +29,12 @@ const MessageContainer = () => {
                     <p className="font-bold text-gray-200">{selectedConversation.fullname}</p>    
                 </div>
             </div>
+            <div className="flex flex-col">
+                <button onClick={()=>handleCall()}>Call</button>
+            </div>
             </div>
 
-  			<Messages/>
-  			<MessageInput/>
+  			{call?<Landing/>:(<><Messages/><MessageInput/></>)}
             
   		</> :<NoChatSelected/> }
   	</div>

@@ -29,7 +29,7 @@ const useLogin = () => {
             console.log(authUser)
 
         } catch (error) {
-            toast.error(error.massage)
+            toast.error(error.message)
         }finally{
             setLoading(false)
         }

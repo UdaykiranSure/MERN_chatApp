@@ -3,7 +3,7 @@ import Conversation from "./Conversation.jsx"
 import { getRandomEmoji } from "../../util/getRandomEmoji.js"
 import { useSocketContext } from "../../context/SocketContext.jsx"
 const Conversations = () => {
-  const {loading, conversations} = useGetConversation()
+  const {loading, conversations} =  useGetConversation()
   return (
     <div  className="py-2 flex flex-col overflow-auto">
 
